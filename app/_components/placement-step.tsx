@@ -165,7 +165,7 @@ export function PlacementStep({
       </CardContent>
       <StepActions
         backLabel="Back to Charms"
-        nextLabel="Add to Cart"
+        nextLabel="Confirm Order"
         onBack={onBack}
         onNext={onConfirm}
       />

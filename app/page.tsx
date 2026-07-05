@@ -112,7 +112,13 @@ export default function Home() {
 
         <Card className={cn("panel", isConfirmed && "confirmation-panel")}>
           {isConfirmed ? (
-            <ConfirmationStep base={base} material={material} charmCount={tray.length} onEdit={restartDesign} />
+            <ConfirmationStep
+              base={base}
+              material={material}
+              charmCount={tray.length}
+              placedCharms={placedCharms}
+              onEdit={restartDesign}
+            />
           ) : (
             <>
               {step === 1 && (
