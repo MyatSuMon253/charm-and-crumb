@@ -37,6 +37,7 @@ A frontend-only Next.js customizer for Charm & Crumb with base selection, materi
 # How I built it
 
 - Methodology: GSD fast iteration from sample screens to working flow
+- Refactor: split the customizer into 3 smaller shadcn UI-backed steps
 - MCP: Context7 for current Next.js App Router docs
 - Skill: frontend-customizer project skill for flow and UI requirements
 - Agent: ui-builder agent note for screen matching and completion checks

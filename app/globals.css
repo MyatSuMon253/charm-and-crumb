@@ -7,12 +7,12 @@
 :root {
   --cream: #fffdf8;
   --line: #eadfd2;
-  --muted: oklch(0.97 0 0);
+  --warm-muted: #9a705f;
   --blush: #f2d2c0;
   --brown: #514236;
   --shadow: 0 24px 60px rgba(83, 65, 52, 0.1);
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
+  --background: #fbf8f2;
+  --foreground: #4b4037;
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
@@ -21,6 +21,7 @@
   --primary-foreground: oklch(0.985 0 0);
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.556 0 0);
   --accent: oklch(0.97 0 0);
   --accent-foreground: oklch(0.205 0 0);
@@ -47,7 +48,7 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-sans);
+  --font-sans: Arial, Helvetica, sans-serif;
   --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
   --font-heading: var(--font-sans);
   --color-sidebar-ring: var(--sidebar-ring);
@@ -177,7 +178,7 @@ button:disabled {
 }
 
 .eyebrow {
-  color: var(--muted);
+  color: var(--warm-muted);
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.16em;
@@ -320,7 +321,7 @@ button:disabled {
 
 .panel-heading p,
 .confirmation p {
-  color: var(--muted);
+  color: var(--warm-muted);
   font-size: 1.04rem;
   line-height: 1.7;
   margin: 12px auto 0;
@@ -450,7 +451,7 @@ button:disabled {
 
 .base-card small,
 .tray-item small {
-  color: var(--muted);
+  color: var(--warm-muted);
 }
 
 .material-label {
@@ -524,7 +525,7 @@ button:disabled {
 .text-button {
   background: transparent;
   border: 0;
-  color: var(--muted);
+  color: var(--warm-muted);
 }
 
 .charm-layout,
@@ -660,7 +661,7 @@ button:disabled {
 }
 
 .empty-note {
-  color: var(--muted);
+  color: var(--warm-muted);
   line-height: 1.6;
 }
 
@@ -775,7 +776,7 @@ button:disabled {
 }
 
 .summary dt {
-  color: var(--muted);
+  color: var(--warm-muted);
 }
 
 .summary ul {
