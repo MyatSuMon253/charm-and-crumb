@@ -75,8 +75,22 @@ export default function Home() {
     });
   }
 
-  function placeCharm(charmId: string, slot: number) {
+  function placeCharm(charmId: string, slot: number, sourceSlot?: number) {
     setPlacedCharms((current) => {
+      if (sourceSlot === slot) return current;
+
+      if (sourceSlot !== undefined) {
+        const sourcePlacement = current.find((item) => item.slot === sourceSlot);
+        if (!sourcePlacement) return current;
+
+        return [
+          ...current.filter(
+            (item) => item.slot !== slot && item.slot !== sourceSlot,
+          ),
+          { charmId: sourcePlacement.charmId, slot },
+        ];
+      }
+
       const withoutSlot = current.filter((item) => item.slot !== slot);
       const existingIndex = withoutSlot.findIndex((item) => item.charmId === charmId);
       if (existingIndex >= 0) {

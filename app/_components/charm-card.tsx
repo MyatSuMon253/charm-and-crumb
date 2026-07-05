@@ -1,6 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
+import { CharmMark } from "./charm-mark";
+import type { Charm } from "./customizer-data";
+
 interface CharmCardProps {
   charm: Charm;
   onAddCharm: (charmId: string) => void;
@@ -14,9 +17,7 @@ export function CharmCard({ charm, onAddCharm }: CharmCardProps) {
   return (
     <Card className="charm-card">
       <CardContent>
-        <span className="charm-mark" aria-hidden="true">
-          <span>{charm.symbol}</span>
-        </span>
+        <CharmMark charm={charm} />
         <div className="charm-card-copy">
           <h3>{charm.name}</h3>
           <p>${charm.price.toFixed(2)}</p>

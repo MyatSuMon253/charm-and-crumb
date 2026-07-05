@@ -18,8 +18,8 @@ export function OrderSummary({
 }) {
   return (
     <Card className="summary">
-      <CardHeader>
-        <CardTitle>Order Summary</CardTitle>
+      <CardHeader className="text-left">
+        <CardTitle className="text-left">Order Summary</CardTitle>
       </CardHeader>
       <CardContent>
         <dl>
@@ -31,16 +31,21 @@ export function OrderSummary({
             <dt>Material</dt>
             <dd>{material.name}</dd>
           </div>
-          <div>
-            <dt>Charms ({tray.length})</dt>
-            <dd>${charmsTotal.toFixed(2)}</dd>
-          </div>
         </dl>
+        <div className="summary-charms-heading">
+          <span>Charms ({tray.length})</span>
+          <strong>${charmsTotal.toFixed(2)}</strong>
+        </div>
         <ul>
           {tray.map((charmId, index) => {
             const charm = findCharm(charmId);
             if (!charm) return null;
-            return <li key={`${charmId}-${index}`}>{charm.name}</li>;
+            return (
+              <li key={`${charmId}-${index}`}>
+                <span aria-hidden="true">{charm.symbol}</span>
+                {charm.name}
+              </li>
+            );
           })}
         </ul>
         <div className="summary-total">
