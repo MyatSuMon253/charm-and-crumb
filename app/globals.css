@@ -384,6 +384,8 @@ button:disabled {
 .summary {
   background: #fffdf8;
   border: 1px solid var(--line);
+  align-items: center;
+  justify-content: center;
 }
 
 .base-card {
@@ -516,8 +518,8 @@ button:disabled {
 .charm-layout,
 .review-layout {
   display: grid;
-  gap: 28px;
-  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 36px;
+  grid-template-columns: minmax(0, 1fr) 300px;
 }
 
 .tabs {
@@ -525,24 +527,28 @@ button:disabled {
   flex-wrap: wrap;
   gap: 8px;
   margin-bottom: 22px;
+  padding: 0;
 }
 
-.tabs button {
+.tabs [data-slot="tabs-trigger"] {
   background: #f2eee8;
   border: 0;
   border-radius: 999px;
   color: #8b6759;
-  padding: 10px 16px;
+  flex: 0 0 auto;
+  height: 32px;
+  min-width: 0;
+  padding: 8px 16px;
 }
 
-.tabs button.active {
+.tabs [data-slot="tabs-trigger"][data-active] {
   background: var(--brown);
   color: #fff;
 }
 
 .charms-grid {
   display: grid;
-  gap: 16px;
+  gap: 16px 18px;
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
@@ -551,13 +557,40 @@ button:disabled {
   border-radius: 8px;
   display: flex;
   flex-direction: column;
+  gap: 0;
+  min-height: 150px;
+  padding: 0;
+}
+
+.charm-card [data-slot="card-content"] {
+  align-items: center;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
   gap: 14px;
-  min-height: 170px;
-  padding: 18px;
+  justify-content: space-between;
+  padding: 16px;
+  width: 100%;
+}
+
+.charm-card-copy {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: center;
 }
 
 .charm-card h3 {
   font-size: 0.98rem;
+  font-weight: 600;
+  line-height: 1.25;
+  text-align: center;
+}
+
+.charm-card-copy p {
+  color: var(--muted);
+  font-size: 0.86rem;
   font-weight: 600;
 }
 
@@ -573,6 +606,14 @@ button:disabled {
   justify-content: center;
   line-height: 1;
   width: 50px;
+}
+
+.charm-card .charm-mark {
+  background: transparent;
+  box-shadow: none;
+  font-size: 2.35rem;
+  height: 48px;
+  width: 64px;
 }
 
 .add-button {
@@ -591,33 +632,52 @@ button:disabled {
 
 .tray {
   border-radius: 14px;
-  min-height: 310px;
-  padding: 20px;
+  min-height: 370px;
+  padding: 18px;
 }
 
-.tray header {
+.tray [data-slot="card-header"] {
   align-items: center;
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   margin-bottom: 16px;
+  padding: 0;
+  width: 100%;
 }
 
-.tray header h3 {
+.tray [data-slot="card-title"] {
+  align-items: center;
+  display: flex;
   font-size: 1.05rem;
   font-weight: 700;
+  gap: 8px;
+  line-height: 1;
+  white-space: nowrap;
 }
 
-.tray header span {
+.tray [data-slot="card-title"] span:first-child {
+  color: #9a705f;
+  font-size: 1rem;
+}
+
+.tray [data-slot="badge"] {
+  align-items: center;
   background: var(--blush);
   border-radius: 8px;
   color: #9a705f;
+  display: inline-flex;
   font-weight: 700;
+  height: 28px;
+  justify-content: center;
+  min-width: 28px;
   padding: 7px 10px;
 }
 
 .tray-list {
   display: grid;
   gap: 10px;
+  padding: 0;
 }
 
 .tray-item {
@@ -627,22 +687,54 @@ button:disabled {
   border-radius: 10px;
   box-shadow: 0 7px 16px rgba(75, 59, 48, 0.07);
   display: grid;
-  gap: 10px;
-  grid-template-columns: auto 1fr auto;
-  padding: 10px;
+  gap: 12px;
+  grid-template-columns: 34px minmax(0, 1fr) 28px;
+  min-height: 58px;
+  padding: 10px 14px;
 }
 
 .tray-item .charm-mark {
-  font-size: 1rem;
-  height: 36px;
-  width: 36px;
+  background: transparent;
+  box-shadow: none;
+  font-size: 1.4rem;
+  height: 32px;
+  width: 32px;
+}
+
+.tray-item-copy {
+  align-items: baseline;
+  column-gap: 3px;
+  display: flex;
+  flex-wrap: wrap;
+  min-width: 0;
+}
+
+.tray-item-copy strong {
+  color: var(--foreground);
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.tray-item-copy small {
+  color: var(--warm-muted);
+  font-size: 0.78rem;
+  line-height: 1.2;
+}
+
+.tray-quantity {
+  color: var(--warm-muted);
+  font-size: 0.78rem;
+  line-height: 1.2;
 }
 
 .tray-item button {
+  align-self: center;
   background: transparent;
   border: 0;
   color: #9d8b7d;
   font-size: 1.3rem;
+  justify-self: end;
 }
 
 .empty-note {

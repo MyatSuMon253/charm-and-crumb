@@ -1,18 +1,14 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 import { CharmMark } from "./charm-mark";
 import type { Charm, TrayItem } from "./customizer-data";
 import { collections } from "./customizer-data";
 import { StepActions, StepHeading } from "./step-shared";
+import { CharmCard } from "./charm-card";
+import { ShoppingBag } from "lucide-react";
 
 export function CharmsStep({
   activeCollection,
@@ -55,20 +51,11 @@ export function CharmsStep({
               <TabsContent key={collection} value={collection}>
                 <div className="charms-grid">
                   {filteredCharms.map((charm) => (
-                    <Card className="charm-card" key={charm.id}>
-                      <CardContent>
-                        <CharmMark charm={charm} />
-                        <h3>{charm.name}</h3>
-                        <Button
-                          type="button"
-                          variant="outline"
-                          className="add-button"
-                          onClick={() => onAddCharm(charm.id)}
-                        >
-                          + Add
-                        </Button>
-                      </CardContent>
-                    </Card>
+                    <CharmCard
+                      key={charm.id}
+                      charm={charm}
+                      onAddCharm={onAddCharm}
+                    />
                   ))}
                 </div>
               </TabsContent>
@@ -77,7 +64,12 @@ export function CharmsStep({
 
           <Card className="tray" aria-label="Your charm tray">
             <CardHeader>
-              <CardTitle>▣ Your Tray</CardTitle>
+              <CardTitle>
+                <span aria-hidden="true">
+                  <ShoppingBag />
+                </span>
+                <span>Your Tray</span>
+              </CardTitle>
               <Badge variant="secondary">{trayCount}</Badge>
             </CardHeader>
             <CardContent className="tray-list">
@@ -87,12 +79,12 @@ export function CharmsStep({
                 trayItems.map(({ charm, quantity }) => (
                   <div className="tray-item" key={charm.id}>
                     <CharmMark charm={charm} />
-                    <div>
+                    <div className="tray-item-copy">
                       <strong>{charm.name}</strong>
-                      <small>
-                        {charm.collection}
-                        {quantity > 1 ? ` × ${quantity}` : ""}
-                      </small>
+                      <small>{charm.collection}</small>
+                      {quantity > 1 ? (
+                        <span className="tray-quantity">× {quantity}</span>
+                      ) : null}
                     </div>
                     <Button
                       type="button"
@@ -110,7 +102,6 @@ export function CharmsStep({
           </Card>
         </div>
       </CardContent>
-      <Separator />
       <StepActions
         backLabel="Back"
         nextLabel="Review & Place"
