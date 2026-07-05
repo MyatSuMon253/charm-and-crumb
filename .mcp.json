@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "context7": {
+      "command": "context7",
+      "description": "Fetched current Next.js App Router documentation before implementing the frontend."
+    }
+  }
+}
