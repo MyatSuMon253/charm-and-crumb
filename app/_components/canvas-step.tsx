@@ -1,5 +1,6 @@
+import Image from "next/image";
+
 import { CardContent } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { cn } from "@/lib/utils";
 
@@ -38,13 +39,21 @@ export function CanvasStep({
             <ToggleGroupItem
               key={option.id}
               value={option.id}
-              className={cn("base-card", selectedBase === option.id && "selected")}
+              className={cn(
+                "base-card",
+                selectedBase === option.id && "selected",
+              )}
               aria-label={option.name}
             >
-              <span
-                className={cn("base-visual", option.visual)}
-                style={{ backgroundImage: `url(${option.imageUrl})` }}
-              />
+              <span className={cn("base-visual", option.visual)}>
+                <Image
+                  src={option.imageUrl}
+                  alt={`${option.name} preview`}
+                  width={280}
+                  height={210}
+                  unoptimized
+                />
+              </span>
               <strong>{option.name}</strong>
               <small>{option.detail}</small>
             </ToggleGroupItem>
@@ -65,7 +74,10 @@ export function CanvasStep({
             <ToggleGroupItem
               key={option.id}
               value={option.id}
-              className={cn("material-card", selectedMaterial === option.id && "selected")}
+              className={cn(
+                "material-card",
+                selectedMaterial === option.id && "selected",
+              )}
               aria-label={option.name}
             >
               <span className="swatch" style={{ background: option.swatch }} />
@@ -74,7 +86,6 @@ export function CanvasStep({
           ))}
         </ToggleGroup>
       </CardContent>
-      <Separator />
       <StepActions nextLabel="Continue to Charms" onNext={onNext} />
     </>
   );

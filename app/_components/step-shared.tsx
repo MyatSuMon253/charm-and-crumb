@@ -62,7 +62,13 @@ export function StepHeading({
   );
 }
 
-export function SectionLabel({ number, label }: { number: number; label: string }) {
+export function SectionLabel({
+  number,
+  label,
+}: {
+  number: number;
+  label: string;
+}) {
   return (
     <div className="section-label">
       <Badge variant="secondary">{number}</Badge>
@@ -87,13 +93,23 @@ export function StepActions({
   return (
     <CardFooter className="footer-actions">
       {backLabel && onBack ? (
-        <Button type="button" variant="ghost" className="text-button" onClick={onBack}>
+        <Button
+          type="button"
+          variant="ghost"
+          className="text-button"
+          onClick={onBack}
+        >
           {backLabel}
         </Button>
       ) : (
         <span />
       )}
-      <Button type="button" className="primary-button" onClick={onNext} disabled={isNextDisabled}>
+      <Button
+        type="button"
+        className="primary-button"
+        onClick={onNext}
+        disabled={isNextDisabled}
+      >
         {nextLabel}
       </Button>
     </CardFooter>

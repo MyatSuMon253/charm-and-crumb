@@ -7,7 +7,7 @@ slides_url: slides/pitch.md
 
 ## Methodology
 
-My methodology was GSD: get the working product on screen first, then polish, refactor, and verify it. I used the sample screens as the source of truth, broke the work into the core customer flow, and shipped the frontend-only Next.js customizer with base/material selection, charm tray management, drag-and-drop placement, order review, and cart confirmation. My superpower for this project was fast iteration: inspect the starter app, build the complete experience, extract reusable shadcn UI-backed components into `app/_components`, run lint/build, then update the report and pitch while the work was fresh.
+My methodology was GSD: get the working product on screen first, then polish, refactor, and verify it. I used the sample screens as the source of truth, broke the work into the core customer flow, and shipped the frontend-only Next.js customizer with base/material selection, visible base preview images, taller material color cards including 925 Rose Pink, charm tray management, drag-and-drop placement, order review, and cart confirmation. My superpower for this project was fast iteration: inspect the starter app, build the complete experience, extract reusable shadcn UI-backed components into `app/_components`, align the canvas title width and material cards to the Figma reference, run lint/build, then update the report and pitch while the work was fresh.
 
 ## Evidence — Claude Code usage
 

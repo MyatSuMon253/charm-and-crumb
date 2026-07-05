@@ -28,7 +28,7 @@ Most jewelry shops show finished products only. Customers cannot easily mix a ba
 
 # What I built
 
-A frontend-only Next.js customizer for Charm & Crumb with base selection, material choices, charm collections, a live tray, drag-and-drop placement, order review, and cart confirmation.
+A frontend-only Next.js customizer for Charm & Crumb with base preview images, material swatches including 925 Rose Pink, charm collections, a live tray, drag-and-drop placement, order review, and cart confirmation.
 
 ---
 
@@ -37,7 +37,7 @@ A frontend-only Next.js customizer for Charm & Crumb with base selection, materi
 # How I built it
 
 - Methodology: GSD fast iteration from sample screens to working flow
-- Refactor: moved reusable customizer components into app/_components
+- UI polish: widened the canvas title and aligned material cards to Figma
 - MCP: Context7 for current Next.js App Router docs
 - Skill: frontend-customizer project skill for flow and UI requirements
 - Agent: ui-builder agent note for screen matching and completion checks
