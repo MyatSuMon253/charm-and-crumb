@@ -1,36 +1,128 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Charm & Crumb
+
+Charm & Crumb is a cozy frontend customizer for designing personalized clay jewelry. Customers can choose a base, pick a metal finish, add tiny food charms, drag them into place, review the order, and confirm their final design.
+
+The project focuses on making custom ordering feel visual, playful, and clear instead of forcing customers to imagine the finished piece from a plain product list.
+
+![Charm & Crumb base and material customizer](screenshots/step-1.png)
+
+## Website Walkthrough
+
+### 1. Choose a Base and Material
+
+Customers start by selecting the jewelry base and finish. The page uses large product previews, swatches, and clear pricing so the first decision feels simple.
+
+![Base and material selection](screenshots/step-1.png)
+
+### 2. Curate Charms
+
+The charm step turns browsing into a collection-building experience. Each charm card shows the charm mark, name, and price, while the tray keeps the selected charms visible.
+
+![Charm selection and tray](screenshots/step-2.png)
+
+### 3. Place the Charms
+
+The placement step lets customers drag charms onto the jewelry preview. This makes the design feel tangible before checkout and gives customers control over the final arrangement.
+
+![Drag and drop charm placement](screenshots/step-3.png)
+
+### 4. Confirm the Order
+
+After placement, the success page confirms the order, shows the final design, provides an estimated delivery window, and lets the customer save the design as an image.
+
+![Order success and confirmed design](screenshots/step-4.png)
+
+## Features
+
+- Guided multi-step custom jewelry flow
+- Base selection with product preview images
+- Material selection with polished swatches
+- Expanded food charm collection
+- Reusable charm cards with mark, name, and price
+- Live charm tray with item counts
+- Drag-and-drop charm placement
+- Order summary with itemized charm list
+- Confirmation page with success message
+- Estimated delivery: 7 to 10 days
+- Downloadable confirmed design image
+- Responsive layout for desktop and mobile
+
+## Tech Stack
+
+- Next.js App Router
+- React
+- TypeScript
+- Tailwind CSS
+- shadcn/ui-style components
+- Base UI primitives
+
+## Methodology
+
+This project was built with a GSD approach: get the core flow working first, then polish the details users actually touch.
+
+The work moved in practical slices:
+
+1. Build the base and material selection.
+2. Add charm browsing and tray management.
+3. Implement drag-and-drop placement.
+4. Refine the order summary and confirmation page.
+5. Verify with lint and production build checks.
 
 ## Getting Started
 
-First, run the development server:
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open the app:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```text
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Verification
 
-## Learn More
+Run lint:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run lint
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Create a production build:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm run build
+```
 
-## Deploy on Vercel
+## Project Structure
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```text
+app/
+  _components/
+    canvas-step.tsx
+    charm-card.tsx
+    charms-step.tsx
+    confirmation-step.tsx
+    order-summary.tsx
+    placement-step.tsx
+screenshots/
+  step-1.png
+  step-2.png
+  step-3.png
+  step-4.png
+slides/
+  pitch.md
+report.md
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Project Goal
+
+Charm & Crumb shows how a small ecommerce idea can feel more personal through interaction. Instead of asking customers to trust a generic product photo, the site lets them build their own piece and see the design come together step by step.

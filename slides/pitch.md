@@ -36,11 +36,11 @@ A frontend-only Next.js customizer for Charm & Crumb with base preview images, m
 
 # How I built it
 
-- Methodology: GSD fast iteration from sample screens to working flow
-- UI polish: aligned the canvas, charm, and tray screens to Figma references
-- MCP: Context7 for current Next.js App Router docs
-- Skill: frontend-customizer project skill for flow and UI requirements
-- Agent: ui-builder agent note for screen matching and completion checks
+- Methodology: GSD, get the core flow working first, then polish what users actually touch
+- Built in slices: base, charms, placement, review, confirmation
+- Iterated from screenshots: compare, adjust, test, repeat
+- Verified with lint/build after changes
+- Used Context7 for current Next.js App Router docs
 
 ---
 
