@@ -4,6 +4,7 @@ export interface BaseOption {
   description: string;
   price: number;
   imageUrl: string;
+  visual: string;
 }
 
 export interface MaterialOption {
@@ -43,6 +44,7 @@ export const bases: BaseOption[] = [
     price: 10000,
     imageUrl:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLlpk-plXmrYlEQ1BCC8fn4piHwhvGtjjEsn-RLoqHgw&s=10",
+    visual: "",
   },
   {
     id: "necklace",
@@ -51,6 +53,7 @@ export const bases: BaseOption[] = [
     price: 15000,
     imageUrl:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5CF4zqd44lthUvWMFVQO-oYNXpbZjAeSE8sAdnjlSIA&s=10",
+    visual: "",
   },
   {
     id: "keychain",
@@ -59,6 +62,7 @@ export const bases: BaseOption[] = [
     price: 5000,
     imageUrl:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9tnzkbGHAMVlZ6ibjQf7AAbv1IN1ei1XkynwFhUfc8w&s=10",
+    visual: "keychain",
   },
   {
     id: "ring",
@@ -67,6 +71,7 @@ export const bases: BaseOption[] = [
     price: 5000,
     imageUrl:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThv_cl0iOHvdoojr5dRpg_jllPBnCdWlPVrsKUxUnFyQ&s=10",
+    visual: "",
   },
   {
     id: "earrings",
@@ -75,6 +80,7 @@ export const bases: BaseOption[] = [
     price: 5000,
     imageUrl:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQk9IwVd5LZN72SD7dWy0JVqqStIbrWtZnbwbaxMy8NYg&s=10",
+    visual: "",
   },
   {
     id: "phone-charm",
@@ -83,6 +89,7 @@ export const bases: BaseOption[] = [
     price: 5000,
     imageUrl:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPrsVJEOxJN5E9Tlo79Ow6QhJ-6Z0NhZHr4lJ8Em499A&s=10",
+    visual: "strap",
   },
 ];
 
