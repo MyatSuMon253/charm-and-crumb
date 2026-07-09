@@ -4,7 +4,7 @@
 
 - **GitHub username:** @MyatSuMon253
 - **Repo URL:** https://github.com/MyatSuMon253/charm-and-crumb
-- **Live / download URL:** Not deployed yet; run locally with `npm run dev`.
+- **Live / download URL:** https://charm-and-crumb.vercel.app/
 - **License:** Proprietary / All rights reserved
 - **One-line summary:** Charm & Crumb is a cozy frontend customizer for designing personalized clay jewelry with selectable bases, finishes, charms, drag-and-drop placement, and order confirmation.
 

@@ -111,7 +111,7 @@ export function ConfirmationStep({
 
       <div className="confirmation-details">
         <div className="confirmed-design-card">
-          <div className={cn("confirmed-design-ring", base.visual)}>
+          <div className={cn("confirmed-design-ring")}>
             {placedDesign.map(({ charm, slot }, index) => {
               if (!charm) return null;
 
