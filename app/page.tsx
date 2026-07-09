@@ -17,6 +17,7 @@ import {
   type PlacedCharm,
   type TrayItem,
 } from "./_components/customizer-data";
+import { HeroSection } from "./_components/hero-section";
 import { PageChrome } from "./_components/page-chrome";
 import { PlacementStep } from "./_components/placement-step";
 import { StepProgress } from "./_components/step-shared";
@@ -26,7 +27,12 @@ export default function Home() {
   const [selectedBase, setSelectedBase] = useState("bracelet");
   const [selectedMaterial, setSelectedMaterial] = useState("bronze");
   const [activeCollection, setActiveCollection] = useState("Cafe");
-  const [tray, setTray] = useState<string[]>(["pizza", "pizza", "fries", "burger"]);
+  const [tray, setTray] = useState<string[]>([
+    "pizza",
+    "pizza",
+    "fries",
+    "burger",
+  ]);
   const [placedCharms, setPlacedCharms] = useState<PlacedCharm[]>([
     { charmId: "pizza", slot: 0 },
     { charmId: "pizza", slot: 1 },
@@ -36,8 +42,11 @@ export default function Home() {
   const [isConfirmed, setIsConfirmed] = useState(false);
 
   const base = bases.find((option) => option.id === selectedBase) ?? bases[0];
-  const material = materials.find((option) => option.id === selectedMaterial) ?? materials[2];
-  const filteredCharms = charms.filter((charm) => charm.collection === activeCollection);
+  const material =
+    materials.find((option) => option.id === selectedMaterial) ?? materials[2];
+  const filteredCharms = charms.filter(
+    (charm) => charm.collection === activeCollection,
+  );
   const trayItems = useMemo(
     () =>
       tray.reduce<TrayItem[]>((items, charmId) => {
@@ -50,13 +59,18 @@ export default function Home() {
       }, []),
     [tray],
   );
-  const charmsTotal = tray.reduce((sum, charmId) => sum + (findCharm(charmId)?.price ?? 0), 0);
+  const charmsTotal = tray.reduce(
+    (sum, charmId) => sum + (findCharm(charmId)?.price ?? 0),
+    0,
+  );
   const total = base.price + material.price + charmsTotal;
 
   function addCharm(charmId: string) {
     setTray((current) => [...current, charmId]);
     setPlacedCharms((current) => {
-      const nextSlot = slots.findIndex((_, index) => !current.some((placed) => placed.slot === index));
+      const nextSlot = slots.findIndex(
+        (_, index) => !current.some((placed) => placed.slot === index),
+      );
       if (nextSlot === -1) return current;
       return [...current, { charmId, slot: nextSlot }];
     });
@@ -80,7 +94,9 @@ export default function Home() {
       if (sourceSlot === slot) return current;
 
       if (sourceSlot !== undefined) {
-        const sourcePlacement = current.find((item) => item.slot === sourceSlot);
+        const sourcePlacement = current.find(
+          (item) => item.slot === sourceSlot,
+        );
         if (!sourcePlacement) return current;
 
         return [
@@ -92,9 +108,13 @@ export default function Home() {
       }
 
       const withoutSlot = current.filter((item) => item.slot !== slot);
-      const existingIndex = withoutSlot.findIndex((item) => item.charmId === charmId);
+      const existingIndex = withoutSlot.findIndex(
+        (item) => item.charmId === charmId,
+      );
       if (existingIndex >= 0) {
-        return withoutSlot.map((item, index) => (index === existingIndex ? { charmId, slot } : item));
+        return withoutSlot.map((item, index) =>
+          index === existingIndex ? { charmId, slot } : item,
+        );
       }
       return [...withoutSlot, { charmId, slot }];
     });
@@ -107,8 +127,18 @@ export default function Home() {
 
   return (
     <PageChrome>
-      <section className="customizer" id="customizer" aria-label="Jewelry customizer">
-        <StepProgress step={step} isConfirmed={isConfirmed} onStepChange={setStep} />
+      <HeroSection />
+
+      <section
+        className="customizer"
+        id="customizer"
+        aria-label="Jewelry customizer"
+      >
+        <StepProgress
+          step={step}
+          isConfirmed={isConfirmed}
+          onStepChange={setStep}
+        />
 
         <Card className={cn("panel", isConfirmed && "confirmation-panel")}>
           {isConfirmed ? (

@@ -1,15 +1,15 @@
 export interface BaseOption {
   id: string;
   name: string;
-  detail: string;
+  description: string;
   price: number;
-  visual: string;
   imageUrl: string;
 }
 
 export interface MaterialOption {
   id: string;
   name: string;
+  description: string;
   price: number;
   swatch: string;
 }
@@ -38,38 +38,51 @@ export const bases: BaseOption[] = [
   {
     id: "bracelet",
     name: "Bracelet",
-    detail: "Delicate bracelet",
-    price: 25,
-    visual: "chain",
+    description:
+      "Elegant silver chain bracelet that wraps gently around the wrist",
+    price: 10000,
     imageUrl:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLlpk-plXmrYlEQ1BCC8fn4piHwhvGtjjEsn-RLoqHgw&s=10",
   },
   {
     id: "necklace",
     name: "Necklace",
-    detail: '18" chain',
-    price: 30,
-    visual: "necklace",
+    description: "Classic 18-inch chain necklace for timeless charm display",
+    price: 15000,
     imageUrl:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5CF4zqd44lthUvWMFVQO-oYNXpbZjAeSE8sAdnjlSIA&s=10",
   },
   {
     id: "keychain",
     name: "Keychain",
-    detail: "Sturdy clasp",
-    price: 18,
-    visual: "keychain",
+    description: "Sturdy keychain with a secure clasp for everyday carry",
+    price: 5000,
     imageUrl:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9tnzkbGHAMVlZ6ibjQf7AAbv1IN1ei1XkynwFhUfc8w&s=10",
   },
   {
     id: "ring",
     name: "Ring",
-    detail: "Clay ring",
-    price: 18,
-    visual: "ring",
+    description: "Handcrafted clay ring with a unique artisanal finish",
+    price: 5000,
     imageUrl:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThv_cl0iOHvdoojr5dRpg_jllPBnCdWlPVrsKUxUnFyQ&s=10",
+  },
+  {
+    id: "earrings",
+    name: "Earrings",
+    description: "Delicate pair of clay earrings for a subtle statement",
+    price: 5000,
+    imageUrl:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQk9IwVd5LZN72SD7dWy0JVqqStIbrWtZnbwbaxMy8NYg&s=10",
+  },
+  {
+    id: "phone-charm",
+    name: "Phone Charm",
+    description: "Trendy phone strap charm to personalize your device",
+    price: 5000,
+    imageUrl:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPrsVJEOxJN5E9Tlo79Ow6QhJ-6Z0NhZHr4lJ8Em499A&s=10",
   },
 ];
 
@@ -77,24 +90,28 @@ export const materials: MaterialOption[] = [
   {
     id: "silver",
     name: "Silver",
+    description: "Classic sterling silver with a bright, cool-toned finish",
     price: 0,
     swatch: "linear-gradient(135deg, #edf1f4, #9da6ad)",
   },
   {
     id: "gold",
     name: "Gold",
+    description: "Warm 18K gold plating for a luxurious, timeless look",
     price: 4,
     swatch: "linear-gradient(135deg, #fff3a8, #f0b90f)",
   },
   {
     id: "bronze",
     name: "Antique Bronze",
+    description: "Vintage-inspired bronze with a rich, aged patina",
     price: 5,
     swatch: "linear-gradient(135deg, #c66b19, #7b3a10)",
   },
   {
     id: "rose-pink",
     name: "925 Rose Pink",
+    description: "Delicate rose gold tone with a romantic pink hue",
     price: 6,
     swatch: "linear-gradient(135deg, #ffd8d3, #d98c86)",
   },

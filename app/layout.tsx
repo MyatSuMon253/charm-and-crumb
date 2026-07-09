@@ -3,7 +3,10 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Charm & Crumb | Custom Jewelry",
-  description: "A cozy frontend jewelry customizer for polymer clay charms.",
+  description: "A cozy frontend jewelry customizer for polymer clay charms",
+  icons: {
+    icon: "/logo.svg",
+  },
 };
 
 export default function RootLayout({

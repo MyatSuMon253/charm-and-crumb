@@ -1,11 +1,8 @@
-import Image from "next/image";
-
-import { CardContent } from "@/components/ui/card";
-import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
-import { cn } from "@/lib/utils";
-
+import { BaseCard } from "../../components/common/base-card";
+import { MaterialCard } from "../../components/common/material-card";
 import { bases, materials } from "./customizer-data";
 import { SectionLabel, StepActions, StepHeading } from "./step-shared";
+import { CardContent } from "@/components/ui/card";
 
 export function CanvasStep({
   selectedBase,
@@ -28,63 +25,36 @@ export function CanvasStep({
       />
       <CardContent>
         <SectionLabel number={1} label="Select Base" />
-        <ToggleGroup
-          value={[selectedBase]}
-          onValueChange={(value) => {
-            if (value[0]) onBaseChange(value[0]);
-          }}
-          className="base-grid"
-        >
+        <div className="base-grid" role="radiogroup" aria-label="Select base jewelry type">
           {bases.map((option) => (
-            <ToggleGroupItem
+            <BaseCard
               key={option.id}
-              value={option.id}
-              className={cn(
-                "base-card",
-                selectedBase === option.id && "selected",
-              )}
-              aria-label={option.name}
-            >
-              <span className={cn("base-visual", option.visual)}>
-                <Image
-                  src={option.imageUrl}
-                  alt={`${option.name} preview`}
-                  width={280}
-                  height={210}
-                  unoptimized
-                />
-              </span>
-              <strong>{option.name}</strong>
-              <small>{option.detail}</small>
-            </ToggleGroupItem>
+              id={option.id}
+              name={option.name}
+              description={option.description}
+              imageUrl={option.imageUrl}
+              isSelected={selectedBase === option.id}
+              onSelect={onBaseChange}
+            />
           ))}
-        </ToggleGroup>
+        </div>
 
         <div className="material-label">
           <SectionLabel number={2} label="Select Material" />
         </div>
-        <ToggleGroup
-          value={[selectedMaterial]}
-          onValueChange={(value) => {
-            if (value[0]) onMaterialChange(value[0]);
-          }}
-          className="material-row"
-        >
+        <div className="material-row" role="radiogroup" aria-label="Select material">
           {materials.map((option) => (
-            <ToggleGroupItem
+            <MaterialCard
               key={option.id}
-              value={option.id}
-              className={cn(
-                "material-card",
-                selectedMaterial === option.id && "selected",
-              )}
-              aria-label={option.name}
-            >
-              <span className="swatch" style={{ background: option.swatch }} />
-              <span>{option.name}</span>
-            </ToggleGroupItem>
+              id={option.id}
+              name={option.name}
+              description={option.description}
+              swatch={option.swatch}
+              isSelected={selectedMaterial === option.id}
+              onSelect={onMaterialChange}
+            />
           ))}
-        </ToggleGroup>
+        </div>
       </CardContent>
       <StepActions nextLabel="Continue to Charms" onNext={onNext} />
     </>

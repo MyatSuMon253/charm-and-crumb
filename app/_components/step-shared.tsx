@@ -1,5 +1,4 @@
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import {
   CardDescription,
   CardFooter,
@@ -9,6 +8,7 @@ import {
 import { cn } from "@/lib/utils";
 
 import { stepLabels } from "./customizer-data";
+import { Button } from "@/components/common/button";
 
 export function StepProgress({
   step,
@@ -106,7 +106,7 @@ export function StepActions({
       )}
       <Button
         type="button"
-        className="primary-button"
+        variant="primary"
         onClick={onNext}
         disabled={isNextDisabled}
       >
