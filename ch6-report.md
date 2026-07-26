@@ -1,49 +1,40 @@
-<!-- ch-6 personal-project report.
-     Copy this file to:  ch-6/<your-github-username>/report.md  in your TEAM repo.
-     Fill every section. Delete the <!-- hint --> comments as you go. -->
-
 # ch-6 Personal Project — Report
 
 ## Project
 
-- **GitHub username:** @<your-github-login>
-- **Repo URL:** https://github.com/<you>/<your-project>
-- **Live URL (deployed, public):** https://<your-live-link>
-- **License:** <!-- must match the LICENSE file in your repo -->
+- **GitHub username:** @MyatSuMon253
+- **Repo URL:** https://github.com/MyatSuMon253/charm-and-crumb
+- **Live URL (deployed, public):** https://charm-and-crumb.vercel.app/
+- **License:** Proprietary / All rights reserved
 
 ## Issues Closed (from Chapter 5 feedback)
 
-<!-- The issues you opened in Ch-5, now fixed. Link each closed issue + how you fixed it
-     (AI agent / MCP / skill you used). -->
+No Chapter 5 feedback issue is closed yet. These issues must be implemented,
+verified, and closed before the Chapter 6 submission is complete:
 
-| # | Issue | Closed link | Fixed with (AI agent / MCP / skill) |
+| # | Issue | Current link | Status |
 |---|---|---|---|
-| 1 | <title> | https://github.com/<you>/<repo>/issues/<n> | <how> |
-| 2 |  |  |  |
+| 1 | Show the selected jewelry base in the placement preview | [GitHub issue #1](https://github.com/MyatSuMon253/charm-and-crumb/issues/1) | Open |
+| 2 | Add a collection of pre-designed jewelry items | [GitHub issue #2](https://github.com/MyatSuMon253/charm-and-crumb/issues/2) | Open |
+| 3 | Support multiple-item orders and local order history | [GitHub issue #3](https://github.com/MyatSuMon253/charm-and-crumb/issues/3) | Open |
 
 ## Polish
 
-- **UI/UX polish:** <!-- what you improved -->
-- **Chrome DevTools / Playwright used:** <!-- yes/no + what you tested (web apps) -->
-- **README polished:** <!-- link to README -->
-- **Analytics added:** <!-- which tool — e.g. Plausible, GoatCounter, GA -->
+- **UI/UX polish:** The current version has a responsive base-to-confirmation wizard, reusable selection components, a visible charm tray, drag-and-drop placement, an itemized order summary, and downloadable confirmation artwork. Chapter 6 feedback fixes are still pending.
+- **Chrome DevTools / Playwright used:** No — Chapter 6 desktop/mobile verification has not been run yet.
+- **README polished:** [README.md](README.md)
+- **Analytics added:** Not yet.
 
 ## Updated Screenshots
 
-<!-- Fresh screenshots of the polished version.
-     Capture with Chrome DevTools MCP at a fixed resolution
-     (desktop 1280×800, mobile 390×844). Note the resolution you used.
-     Syntax: ![caption](path/to/image.png) -->
+- **Resolution used:** Current screenshots are 1280×800 desktop. Fresh Chapter 6 screenshots must be captured after the feedback issues are fixed.
 
-- **Resolution used:** <!-- e.g. 1280×800 desktop -->
-
-
-![screenshot 1 — <what it shows>](screenshots/01.png)
-![screenshot 2 — <what it shows>](screenshots/02.png)
-![screenshot 3 — <what it shows>](screenshots/03.png)
+![Charm & Crumb home and product introduction](screenshots/01-home.png)
+![Base and material selection](screenshots/02-base-material.png)
+![Charm placement and order review](screenshots/04-placement.png)
 
 ## Gallery Card (this project goes public)
 
-- **Title:** <!-- project name -->
-- **One-line description:** <!-- for the gallery card -->
-- **Slides path:** <!-- file path inside your repo -->
+- **Title:** Charm & Crumb
+- **One-line description:** A cozy visual customizer for designing personalized clay jewelry one tiny charm at a time.
+- **Slides path:** slides/intro.md
