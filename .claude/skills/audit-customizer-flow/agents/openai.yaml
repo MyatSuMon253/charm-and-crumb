@@ -1,0 +1,4 @@
+interface:
+  display_name: "Audit Customizer Flow"
+  short_description: "Audit the jewelry wizard before release"
+  default_prompt: "Use $audit-customizer-flow to audit the Charm & Crumb wizard and save actionable findings."

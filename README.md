@@ -68,6 +68,14 @@ The work moved in practical slices:
 4. Refine the order summary and confirmation page.
 5. Verify with lint and production build checks.
 
+## Chapter 5 Workflow Evidence
+
+- Skill: `.claude/skills/audit-customizer-flow/SKILL.md`
+- Subagent: `.claude/agents/customizer-ux-auditor.md`
+- Saved audit run: `docs/chapter-5/customizer-audit.md`
+- Tech-stack deck: `slides/tech-stack.md`
+- Real-user feedback issues: `feedback/issues.md`
+
 ## Getting Started
 
 Install dependencies:
