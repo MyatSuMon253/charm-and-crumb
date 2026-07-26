@@ -1,52 +1,40 @@
-<!-- ch-5 personal-project report.
-     Copy this file to:  ch-5/<your-github-username>/report.md  in your TEAM repo.
-     Fill every section. Delete the <!-- hint --> comments as you go. -->
-
 # ch-5 Personal Project — Report
 
 ## Project
 
-- **GitHub username:** @<your-github-login>
-- **Repo URL:** https://github.com/<you>/<your-project>
-- **Live / download URL:** https://<your-live-link>
+- **GitHub username:** @MyatSuMon253
+- **Repo URL:** https://github.com/MyatSuMon253/charm-and-crumb
+- **Live / download URL:** https://charm-and-crumb.vercel.app/
 
 ## AI Tools Used
 
-<!-- List the AI tools / workflow pieces you actually used this chapter. One line each on what it did.
-     Examples: skills, subagents, multi-agent run, Superpowers, GSD, PAL MCP, Context7, claude-mem. -->
-
-- **<tool name>** — <what you used it for>
-- **<tool name>** — <what you used it for>
+- **Codex skill creator** — scaffolded and validated the reusable project audit skill.
+- **`$audit-customizer-flow` skill** — defined an evidence-backed release audit for the complete jewelry customizer.
+- **`customizer-ux-auditor` subagent** — independently traced the wizard, ran verification, and saved Chapter 6 issue candidates.
+- **Multi-agent workflow** — let the subagent audit independently while the main agent prepared the deck and report.
+- **Context7 MCP** — supplied current Next.js 16 App Router documentation for the tech-stack explanation.
+- **GSD methodology** — moved from a working end-to-end flow to focused polish, verification, and user-feedback triage.
 
 ### Skill (required)
 
-- **path:** .claude/skills/<name>/SKILL.md
-- **what:** <what the skill does>
+- **path:** .claude/skills/audit-customizer-flow/SKILL.md
+- **what:** Audits the base-to-confirmation flow, verifies lint and build, and turns source-backed findings into prioritized Chapter 6 candidates without fabricating user feedback.
 
 ### Subagent (required)
 
-- **path:** .claude/agents/<name>.md
-- **what:** <what the agent does>
+- **path:** .claude/agents/customizer-ux-auditor.md
+- **what:** Runs the audit skill as an independent read-only reviewer and saves its evidence in the project repo.
 
 ## Trigger / Command
 
-<!-- If you built your own skill / agent, show how to fire it. -->
-
-- **Trigger:** <when/how it activates>
-- **Command:** <the exact command or phrase you run>
+- **Trigger:** Before a demo or release, after changing a wizard step, or whenever the complete customization flow needs an accessibility, responsiveness, and release-readiness audit.
+- **Command:** `Use the customizer-ux-auditor subagent with $audit-customizer-flow and save its audit to docs/chapter-5/customizer-audit.md.`
 
 ## Tech-Stack Slides
 
-- **Slides path:** <!-- file path inside your repo, e.g. slides/tech-stack.md -->
-  <!-- Deck should cover: tech stack · agents · skills · methodology · trigger · commands -->
+- **Slides path:** slides/tech-stack.md
 
 ## User Feedback (pick ONE — use just one template)
 
-<!-- Copy ONE of these into your repo, fill it, and link it here:
-       interview-template.md   — you talked to a real user
-       feedback-template.md     — you collected written feedback
-       issues-template.md       — you filed GitHub issues from feedback
-     Then link the filled file below. -->
-
-- **Feedback file path:** <!-- e.g. feedback/interview-notes.md -->
-- **Open issues:** <!-- links to the GitHub issues you opened, if any -->
+- **Feedback file path:** feedback/issues.md
+- **Open issues:** [#1 selected-base placement preview](https://github.com/MyatSuMon253/charm-and-crumb/issues/1), [#2 pre-designed collection](https://github.com/MyatSuMon253/charm-and-crumb/issues/2), [#3 multiple-item orders and local history](https://github.com/MyatSuMon253/charm-and-crumb/issues/3)
