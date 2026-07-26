@@ -1,6 +1,6 @@
 # Charm & Crumb
 
-Charm & Crumb is a cozy frontend customizer for designing personalized clay jewelry. Customers can choose a base, pick a metal finish, add tiny food charms, drag them into place, review the order, and confirm their final design.
+Charm & Crumb is a cozy frontend customizer for designing personalized clay jewelry. Customers can start from a pre-designed piece or build from scratch, choose a base and finish, place food charms, combine multiple designs in one order, and trace confirmed orders.
 
 The project focuses on making custom ordering feel visual, playful, and clear instead of forcing customers to imagine the finished piece from a plain product list.
 
@@ -8,9 +8,9 @@ The project focuses on making custom ordering feel visual, playful, and clear in
 
 ## Website Walkthrough
 
-### 1. Choose a Base and Material
+### 1. Start With Inspiration or Build From Scratch
 
-Customers start by selecting the jewelry base and finish. The page uses large product previews, swatches, and clear pricing so the first decision feels simple.
+Customers can customize a pre-designed favorite or select their own jewelry base and finish. The page uses finished examples, large product previews, swatches, and clear pricing so the first decision feels simple.
 
 ![Base and material selection](screenshots/step-1.png)
 
@@ -22,30 +22,35 @@ The charm step turns browsing into a collection-building experience. Each charm 
 
 ### 3. Place the Charms
 
-The placement step lets customers drag charms onto the jewelry preview. This makes the design feel tangible before checkout and gives customers control over the final arrangement.
+The placement step lets customers drag charms onto a preview that matches the selected bracelet, necklace, keychain, ring, earrings, or phone charm.
 
-![Drag and drop charm placement](screenshots/step-3.png)
+![Necklace-specific charm placement](screenshots/ch6-desktop-necklace-placement.png)
 
-### 4. Confirm the Order
+### 4. Build and Track an Order
 
-After placement, the success page confirms the order, shows the final design, provides an estimated delivery window, and lets the customer save the design as an image.
+Customers can add several finished designs to one order, review the combined total, confirm the order, save the first design as an image, and trace the order reference and crafting status.
 
-![Order success and confirmed design](screenshots/step-4.png)
+![Multiple designs in order history](screenshots/ch6-desktop-order-history.png)
 
 ## Features
 
 - Guided multi-step custom jewelry flow
+- Pre-designed jewelry starters
 - Base selection with product preview images
+- Base-specific placement silhouettes for all six jewelry types
 - Material selection with polished swatches
 - Expanded food charm collection
 - Reusable charm cards with mark, name, and price
 - Live charm tray with item counts
 - Drag-and-drop charm placement
 - Order summary with itemized charm list
+- Multiple custom designs in one order
+- Client-side order references, status, and order history
 - Confirmation page with success message
 - Estimated delivery: 7 to 10 days
 - Downloadable confirmed design image
 - Responsive layout for desktop and mobile
+- Vercel Web Analytics
 
 ## Tech Stack
 
@@ -75,6 +80,19 @@ The work moved in practical slices:
 - Saved audit run: `docs/chapter-5/customizer-audit.md`
 - Tech-stack deck: `slides/tech-stack.md`
 - Real-user feedback issues: `feedback/issues.md`
+
+## Chapter 6 Feedback Fixes
+
+- [Issue #1](https://github.com/MyatSuMon253/charm-and-crumb/issues/1): placement now reflects the selected base with six distinct silhouettes.
+- [Issue #2](https://github.com/MyatSuMon253/charm-and-crumb/issues/2): customers can start from three pre-designed pieces.
+- [Issue #3](https://github.com/MyatSuMon253/charm-and-crumb/issues/3): orders support multiple designs, combined totals, references, status, and session history.
+- Browser verification: `tests/chapter-6-flow.spec.ts`
+- Gallery deck: `slides/gallery.md`
+
+## Analytics
+
+Vercel Web Analytics is mounted in the root App Router layout with
+`@vercel/analytics/next`.
 
 ## Getting Started
 
@@ -110,6 +128,12 @@ Create a production build:
 npm run build
 ```
 
+Run the Chapter 6 desktop and mobile browser checks:
+
+```bash
+npm run test:e2e
+```
+
 ## Project Structure
 
 ```text
@@ -119,16 +143,19 @@ app/
     charm-card.tsx
     charms-step.tsx
     confirmation-step.tsx
+    order-history.tsx
+    order-review-step.tsx
     order-summary.tsx
     placement-step.tsx
 screenshots/
-  step-1.png
-  step-2.png
-  step-3.png
-  step-4.png
+  ch6-desktop-necklace-placement.png
+  ch6-desktop-order-history.png
+  ch6-mobile-collection.png
 slides/
+  gallery.md
   pitch.md
-report.md
+tests/
+  chapter-6-flow.spec.ts
 ```
 
 ## Project Goal

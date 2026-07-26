@@ -1,6 +1,11 @@
 import { BaseCard } from "../../components/common/base-card";
 import { MaterialCard } from "../../components/common/material-card";
-import { bases, materials } from "./customizer-data";
+import {
+  bases,
+  materials,
+  type PreDesignedItem,
+} from "./customizer-data";
+import { PreDesignedCollection } from "./pre-designed-collection";
 import { SectionLabel, StepActions, StepHeading } from "./step-shared";
 import { CardContent } from "@/components/ui/card";
 
@@ -9,12 +14,14 @@ export function CanvasStep({
   selectedMaterial,
   onBaseChange,
   onMaterialChange,
+  onPresetSelect,
   onNext,
 }: {
   selectedBase: string;
   selectedMaterial: string;
   onBaseChange: (baseId: string) => void;
   onMaterialChange: (materialId: string) => void;
+  onPresetSelect: (item: PreDesignedItem) => void;
   onNext: () => void;
 }) {
   return (
@@ -24,7 +31,9 @@ export function CanvasStep({
         description="Select the base jewelry and your preferred metal finish."
       />
       <CardContent>
-        <SectionLabel number={1} label="Select Base" />
+        <PreDesignedCollection onSelect={onPresetSelect} />
+
+        <SectionLabel number={2} label="Select Base" />
         <div className="base-grid" role="radiogroup" aria-label="Select base jewelry type">
           {bases.map((option) => (
             <BaseCard
@@ -40,7 +49,7 @@ export function CanvasStep({
         </div>
 
         <div className="material-label">
-          <SectionLabel number={2} label="Select Material" />
+          <SectionLabel number={3} label="Select Material" />
         </div>
         <div className="material-row" role="radiogroup" aria-label="Select material">
           {materials.map((option) => (

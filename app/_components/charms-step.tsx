@@ -38,7 +38,7 @@ export function CharmsStep({
         description="Mix and match from our miniature food collections."
       />
       <CardContent>
-        <div className="charm-layout" id="collections">
+        <div className="charm-layout" id="charm-collections">
           <Tabs value={activeCollection} onValueChange={onCollectionChange}>
             <TabsList className="tabs" aria-label="Charm collections">
               {collections.map((collection) => (

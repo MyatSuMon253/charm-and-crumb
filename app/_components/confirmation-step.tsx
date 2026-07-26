@@ -1,36 +1,44 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/common/button";
+import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
 
+import { BaseSilhouette } from "./base-silhouette";
 import { CharmMark } from "./charm-mark";
-import type {
-  BaseOption,
-  MaterialOption,
-  PlacedCharm,
+import {
+  findBase,
+  findCharm,
+  findMaterial,
+  slots,
+  type OrderRecord,
 } from "./customizer-data";
-import { findCharm, slots } from "./customizer-data";
-import { Separator } from "@/components/ui/separator";
 
 export function ConfirmationStep({
-  base,
-  material,
-  charmCount,
-  placedCharms,
-  onEdit,
+  order,
+  onStartNewOrder,
 }: {
-  base: BaseOption;
-  material: MaterialOption;
-  charmCount: number;
-  placedCharms: PlacedCharm[];
-  onEdit: () => void;
+  order: OrderRecord;
+  onStartNewOrder: () => void;
 }) {
-  const placedDesign = placedCharms
-    .map((placedCharm) => ({
-      ...placedCharm,
-      charm: findCharm(placedCharm.charmId),
-    }))
-    .filter((placedCharm) => placedCharm.charm);
+  const primaryDesign = order.items[0];
+  const base = primaryDesign ? findBase(primaryDesign.baseId) : undefined;
+  const material = primaryDesign
+    ? findMaterial(primaryDesign.materialId)
+    : undefined;
+  const placedDesign =
+    primaryDesign?.placedCharms
+      .map((placedCharm) => ({
+        ...placedCharm,
+        charm: findCharm(placedCharm.charmId),
+      }))
+      .filter((placedCharm) => placedCharm.charm) ?? [];
+
+  if (!primaryDesign || !base || !material) return null;
+
+  const baseName = base.name;
+  const materialName = material.name;
 
   function handleSaveDesignImage() {
     const canvas = document.createElement("canvas");
@@ -90,11 +98,13 @@ export function ConfirmationStep({
     context.font = "32px Georgia";
     context.fillStyle = "#514236";
     context.textAlign = "center";
-    context.fillText(`${material.name} ${base.name}`, center, 790);
+    context.fillText(`${materialName} ${baseName}`, center, 790);
+    context.font = "22px Arial";
+    context.fillText(order.id, center, 830);
 
     const link = document.createElement("a");
     link.href = canvas.toDataURL("image/png");
-    link.download = "charm-and-crumb-design.png";
+    link.download = `${order.id.toLowerCase()}-design.png`;
     link.click();
   }
 
@@ -103,15 +113,18 @@ export function ConfirmationStep({
       <div className="success-badge" aria-hidden="true">
         ✓
       </div>
+      <Badge variant="secondary">{order.status}</Badge>
       <h2>Order Successful!</h2>
       <p>
-        Your custom {material.name} {base.name} with {charmCount} adorable
-        charms has been confirmed.
+        {order.items.length}{" "}
+        {order.items.length === 1 ? "custom design has" : "custom designs have"}{" "}
+        been confirmed.
       </p>
 
       <div className="confirmation-details">
         <div className="confirmed-design-card">
-          <div className={cn("confirmed-design-ring")}>
+          <div className={cn("confirmed-design-ring", base.visual)}>
+            <BaseSilhouette base={base} />
             {placedDesign.map(({ charm, slot }, index) => {
               if (!charm) return null;
 
@@ -132,23 +145,74 @@ export function ConfirmationStep({
           </div>
           <Button
             type="button"
-            variant="outline"
-            className="outline-button save-design-button"
+            variant="secondary"
+            size="sm"
+            className="min-h-11 w-full"
             onClick={handleSaveDesignImage}
           >
-            Save Design Image
+            Save First Design Image
           </Button>
         </div>
 
         <div className="confirmation-copy">
           <div>
+            <span>Order Reference</span>
+            <strong>{order.id}</strong>
+          </div>
+          <div>
             <span>Estimated Delivery</span>
             <strong>7 to 10 days</strong>
           </div>
+          <div className="flex flex-col gap-3">
+            <span>Order Items</span>
+            <ul className="flex flex-col gap-2">
+              {order.items.map((item, index) => {
+                const itemBase = findBase(item.baseId);
+                const itemMaterial = findMaterial(item.materialId);
+
+                return (
+                  <li
+                    key={item.id}
+                    className="flex items-center justify-between gap-3 text-sm"
+                  >
+                    <span>
+                      Design {index + 1}: {itemMaterial?.name} {itemBase?.name}
+                    </span>
+                    <strong>${item.total.toFixed(2)}</strong>
+                  </li>
+                );
+              })}
+            </ul>
+            <Separator />
+            <div className="flex items-center justify-between gap-3 p-0">
+              <span>Total</span>
+              <strong>${order.total.toFixed(2)}</strong>
+            </div>
+          </div>
           <p>
-            Thank you for choosing Charm & Crumb. We can&apos;t wait to craft
-            this tiny treat-filled piece just for you.
+            Thank you for choosing Charm & Crumb. Track this order in your order
+            history while we craft every tiny detail.
           </p>
+          <div className="button-row">
+            <Button
+              type="button"
+              variant="primary"
+              size="sm"
+              className="min-h-11 w-full"
+              onClick={onStartNewOrder}
+            >
+              Start Another Order
+            </Button>
+            <Button
+              render={<a href="#orders" />}
+              nativeButton={false}
+              variant="outline"
+              size="sm"
+              className="min-h-11 w-full"
+            >
+              View Order History
+            </Button>
+          </div>
         </div>
       </div>
     </section>

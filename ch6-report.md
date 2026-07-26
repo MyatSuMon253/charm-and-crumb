@@ -9,32 +9,29 @@
 
 ## Issues Closed (from Chapter 5 feedback)
 
-No Chapter 5 feedback issue is closed yet. These issues must be implemented,
-verified, and closed before the Chapter 6 submission is complete:
-
-| # | Issue | Current link | Status |
+| # | Issue | Closed link | Fixed with (AI agent / MCP / skill) |
 |---|---|---|---|
-| 1 | Show the selected jewelry base in the placement preview | [GitHub issue #1](https://github.com/MyatSuMon253/charm-and-crumb/issues/1) | Open |
-| 2 | Add a collection of pre-designed jewelry items | [GitHub issue #2](https://github.com/MyatSuMon253/charm-and-crumb/issues/2) | Open |
-| 3 | Support multiple-item orders and local order history | [GitHub issue #3](https://github.com/MyatSuMon253/charm-and-crumb/issues/3) | Open |
+| 1 | Show the selected jewelry base in the placement preview | [GitHub issue #1](https://github.com/MyatSuMon253/charm-and-crumb/issues/1) | Codex + Next.js/React skill + Playwright |
+| 2 | Add a collection of pre-designed jewelry items | [GitHub issue #2](https://github.com/MyatSuMon253/charm-and-crumb/issues/2) | Codex + shadcn skill + Context7 MCP + Playwright |
+| 3 | Support multiple-item orders and local order history | [GitHub issue #3](https://github.com/MyatSuMon253/charm-and-crumb/issues/3) | Codex + Next.js/React skill + Playwright |
 
 ## Polish
 
-- **UI/UX polish:** The current version has a responsive base-to-confirmation wizard, reusable selection components, a visible charm tray, drag-and-drop placement, an itemized order summary, and downloadable confirmation artwork. Chapter 6 feedback fixes are still pending.
-- **Chrome DevTools / Playwright used:** No — Chapter 6 desktop/mobile verification has not been run yet.
-- **README polished:** [README.md](README.md)
-- **Analytics added:** Not yet.
+- **UI/UX polish:** Added six base-specific placement silhouettes, three responsive pre-designed starters, a four-step multi-design ordering flow, combined order totals, order references and crafting status, session order history, improved button/link semantics, and responsive 44px actions.
+- **Chrome DevTools / Playwright used:** Yes — Playwright verified all six placement previews, pre-designed selection, a two-design order, confirmation/history, and desktop 1280×800 plus mobile 390×844 layouts.
+- **README polished:** [README.md](https://github.com/MyatSuMon253/charm-and-crumb/blob/main/README.md)
+- **Analytics added:** Vercel Web Analytics with `@vercel/analytics/next` in the root App Router layout.
 
 ## Updated Screenshots
 
-- **Resolution used:** Current screenshots are 1280×800 desktop. Fresh Chapter 6 screenshots must be captured after the feedback issues are fixed.
+- **Resolution used:** 1280×800 desktop and 390×844 mobile
 
-![Charm & Crumb home and product introduction](screenshots/01-home.png)
-![Base and material selection](screenshots/02-base-material.png)
-![Charm placement and order review](screenshots/04-placement.png)
+![Necklace-specific charm placement](screenshots/ch6-desktop-necklace-placement.png)
+![Two-design order history](screenshots/ch6-desktop-order-history.png)
+![Mobile pre-designed collection](screenshots/ch6-mobile-collection.png)
 
 ## Gallery Card (this project goes public)
 
 - **Title:** Charm & Crumb
-- **One-line description:** A cozy visual customizer for designing personalized clay jewelry one tiny charm at a time.
-- **Slides path:** slides/intro.md
+- **One-line description:** A cozy visual customizer for creating, combining, and tracking personalized clay jewelry designs.
+- **Slides path:** slides/gallery.md

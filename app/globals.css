@@ -163,7 +163,7 @@ button:disabled {
 
 .brand-logo {
   height: 32px;
-  width: auto;
+  width: 32px;
 }
 
 .topbar nav {
@@ -479,7 +479,7 @@ button:disabled {
 .steps {
   align-items: start;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   margin: 0 auto 22px;
   max-width: 640px;
   position: relative;
@@ -1043,6 +1043,11 @@ button:disabled {
   max-width: 470px;
   position: relative;
   width: min(100%, 470px);
+}
+
+.piece-ring > svg,
+.confirmed-design-ring > svg {
+  opacity: 0.7;
 }
 
 .piece-ring::before {

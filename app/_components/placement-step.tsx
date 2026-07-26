@@ -4,9 +4,11 @@ import { useState } from "react";
 import type { DragEvent } from "react";
 
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { CardContent } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 
+import { BaseSilhouette } from "./base-silhouette";
 import { CharmMark } from "./charm-mark";
 import type {
   BaseOption,
@@ -82,7 +84,9 @@ export function PlacementStep({
             className="piece-preview"
             aria-label="Drag-and-drop charm placement area"
           >
+            <Badge variant="secondary">{base.name} preview</Badge>
             <div className={cn("piece-ring", base.visual)}>
+              <BaseSilhouette base={base} />
               {slots.map((slot, index) => {
                 const placed = placedCharms.find((item) => item.slot === index);
                 const charm = placed ? findCharm(placed.charmId) : undefined;
@@ -165,7 +169,7 @@ export function PlacementStep({
       </CardContent>
       <StepActions
         backLabel="Back to Charms"
-        nextLabel="Confirm Order"
+        nextLabel="Add Design to Order"
         onBack={onBack}
         onNext={onConfirm}
       />

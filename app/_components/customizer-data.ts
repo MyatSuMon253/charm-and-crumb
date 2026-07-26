@@ -28,12 +28,44 @@ export interface PlacedCharm {
   slot: number;
 }
 
+export interface PreDesignedItem {
+  id: string;
+  name: string;
+  description: string;
+  baseId: string;
+  materialId: string;
+  charmIds: string[];
+  placedCharms: PlacedCharm[];
+}
+
+export interface OrderDesign {
+  id: string;
+  baseId: string;
+  materialId: string;
+  charmIds: string[];
+  placedCharms: PlacedCharm[];
+  total: number;
+}
+
+export interface OrderRecord {
+  id: string;
+  createdAt: string;
+  status: string;
+  items: OrderDesign[];
+  total: number;
+}
+
 export interface TrayItem {
   charm: Charm;
   quantity: number;
 }
 
-export const stepLabels = ["Base & Material", "Choose Charms", "Placement"];
+export const stepLabels = [
+  "Base & Material",
+  "Choose Charms",
+  "Placement",
+  "Order",
+];
 
 export const bases: BaseOption[] = [
   {
@@ -44,7 +76,7 @@ export const bases: BaseOption[] = [
     price: 10000,
     imageUrl:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLlpk-plXmrYlEQ1BCC8fn4piHwhvGtjjEsn-RLoqHgw&s=10",
-    visual: "",
+    visual: "bracelet",
   },
   {
     id: "necklace",
@@ -53,7 +85,7 @@ export const bases: BaseOption[] = [
     price: 15000,
     imageUrl:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5CF4zqd44lthUvWMFVQO-oYNXpbZjAeSE8sAdnjlSIA&s=10",
-    visual: "",
+    visual: "necklace",
   },
   {
     id: "keychain",
@@ -71,7 +103,7 @@ export const bases: BaseOption[] = [
     price: 5000,
     imageUrl:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThv_cl0iOHvdoojr5dRpg_jllPBnCdWlPVrsKUxUnFyQ&s=10",
-    visual: "",
+    visual: "ring",
   },
   {
     id: "earrings",
@@ -80,7 +112,7 @@ export const bases: BaseOption[] = [
     price: 5000,
     imageUrl:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQk9IwVd5LZN72SD7dWy0JVqqStIbrWtZnbwbaxMy8NYg&s=10",
-    visual: "",
+    visual: "earrings",
   },
   {
     id: "phone-charm",
@@ -89,7 +121,7 @@ export const bases: BaseOption[] = [
     price: 5000,
     imageUrl:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPrsVJEOxJN5E9Tlo79Ow6QhJ-6Z0NhZHr4lJ8Em499A&s=10",
-    visual: "strap",
+    visual: "phone-charm",
   },
 ];
 
@@ -411,6 +443,49 @@ export const charms: Charm[] = [
   { id: "cherry", name: "Cherry", collection: "Fruit", price: 4, symbol: "🍒" },
 ];
 
+export const preDesignedItems: PreDesignedItem[] = [
+  {
+    id: "cafe-date-necklace",
+    name: "Cafe Date",
+    description: "A cozy necklace inspired by slow mornings and pastry runs.",
+    baseId: "necklace",
+    materialId: "gold",
+    charmIds: ["coffee-cup", "croissant", "matcha"],
+    placedCharms: [
+      { charmId: "coffee-cup", slot: 0 },
+      { charmId: "croissant", slot: 1 },
+      { charmId: "matcha", slot: 3 },
+    ],
+  },
+  {
+    id: "fruit-picnic-bracelet",
+    name: "Fruit Picnic",
+    description: "A bright bracelet filled with tiny summer fruit favorites.",
+    baseId: "bracelet",
+    materialId: "rose-pink",
+    charmIds: ["strawberry", "cherry", "peach", "lemon"],
+    placedCharms: [
+      { charmId: "strawberry", slot: 0 },
+      { charmId: "cherry", slot: 1 },
+      { charmId: "peach", slot: 2 },
+      { charmId: "lemon", slot: 3 },
+    ],
+  },
+  {
+    id: "tokyo-snack-keychain",
+    name: "Tokyo Snack",
+    description: "A playful keychain with favorite Japanese comfort foods.",
+    baseId: "keychain",
+    materialId: "silver",
+    charmIds: ["sushi", "onigiri", "dango"],
+    placedCharms: [
+      { charmId: "sushi", slot: 0 },
+      { charmId: "onigiri", slot: 1 },
+      { charmId: "dango", slot: 3 },
+    ],
+  },
+];
+
 export const slots = [
   { top: "18%", left: "48%" },
   { top: "38%", left: "76%" },
@@ -422,4 +497,31 @@ export const slots = [
 
 export function findCharm(charmId: string) {
   return charms.find((charm) => charm.id === charmId);
+}
+
+export function findBase(baseId: string) {
+  return bases.find((base) => base.id === baseId);
+}
+
+export function findMaterial(materialId: string) {
+  return materials.find((material) => material.id === materialId);
+}
+
+export function getDesignTotal({
+  baseId,
+  materialId,
+  charmIds,
+}: {
+  baseId: string;
+  materialId: string;
+  charmIds: string[];
+}) {
+  const basePrice = findBase(baseId)?.price ?? 0;
+  const materialPrice = findMaterial(materialId)?.price ?? 0;
+  const charmsPrice = charmIds.reduce(
+    (sum, charmId) => sum + (findCharm(charmId)?.price ?? 0),
+    0,
+  );
+
+  return basePrice + materialPrice + charmsPrice;
 }

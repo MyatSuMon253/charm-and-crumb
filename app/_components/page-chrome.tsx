@@ -25,6 +25,7 @@ export function PageChrome({
         <nav aria-label="Main navigation">
           <a href="#customizer">Shop</a>
           <a href="#collections">Collections</a>
+          <a href="#orders">Orders</a>
         </nav>
       </header>
 
